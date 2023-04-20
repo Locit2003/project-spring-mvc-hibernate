@@ -1,68 +1,53 @@
-package com.locShop.model;
+package com.locShop.DTO;
 
 import java.util.Date;
 
-import javax.persistence.*;
-import javax.persistence.Table;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
-import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.web.multipart.MultipartFile;
 
-@Entity
-@Table(name = "product")
-public class ProductEntity {
+import com.locShop.model.CategoryEntity;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+public class ProductDTO {
+
 	private Long id;
-
-	@Column(name = "created_at")
-	@CreationTimestamp
+	
 	private Date created_at;
 
-	@Column(name = "updated_at")
-	@CreationTimestamp
 	private Date updated_at;
 
-	@Column(name = "delete_at")
 	private Date delete_at;
 
-	@Column(name = "name")
 	@NotEmpty(message = "tên không được để trống")
 	@Length(min = 3, message = "tên sản phẩm phải có ít nhất 3 ký tự")
 	private String name;
 
-	@Column(name = "image")
+	@NotEmpty(message = "bạn phải chọn ảnh")
 	private String image;
 
 	@NotNull(message = "giá sản phẩm không được đê trống")
-	@Column(name = "price")
 	private Float price;
 
-	@Column(name = "sale_price")
 	private Float sale_price;
 
-	@Column(name = "description")
 	private String description;
-
-	@ManyToOne()
-	@JoinColumn(name = "category_id", referencedColumnName = "id")
-	private CategoryEntity category_id;
-
-	public ProductEntity() {
-
+	
+	@NotNull(message = "bạn phải chọn ảnh")
+	private MultipartFile fileUpload;
+	
+	private Long category_id;
+	
+	public ProductDTO() {
+		// TODO Auto-generated constructor stub
 	}
+	
 
-	public ProductEntity(Long id, Date created_at, Date updated_at, Date delete_at, String name, String image,
-			Float price, Float sale_price, String description, CategoryEntity category_id) {
+	public ProductDTO(
+			@NotEmpty(message = "tên không được để trống") @Length(min = 3, message = "tên sản phẩm phải có ít nhất 3 ký tự") String name,
+			@NotEmpty(message = "bạn phải chọn ảnh") String image, Float price, Float sale_price, String description,Long category_id) {
 		super();
-		this.id = id;
-		this.created_at = created_at;
-		this.updated_at = updated_at;
-		this.delete_at = delete_at;
 		this.name = name;
 		this.image = image;
 		this.price = price;
@@ -71,13 +56,17 @@ public class ProductEntity {
 		this.category_id = category_id;
 	}
 
+	
+
 	public Long getId() {
 		return id;
 	}
 
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 
 	public Date getCreated_at() {
 		return created_at;
@@ -143,11 +132,21 @@ public class ProductEntity {
 		this.description = description;
 	}
 
-	public CategoryEntity getCategory_id() {
+
+	public MultipartFile getFileUpload() {
+		return fileUpload;
+	}
+
+	public void setFileUpload(MultipartFile fileUpload) {
+		this.fileUpload = fileUpload;
+	}
+
+
+	public Long getCategory_id() {
 		return category_id;
 	}
 
-	public void setCategory_id(CategoryEntity category_id) {
+	public void setCategory_id(Long category_id) {
 		this.category_id = category_id;
 	}
 

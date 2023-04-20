@@ -1,6 +1,5 @@
 package com.locShop.dao.impl;
 
-import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -8,7 +7,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import com.locShop.HibernateUtitill.HibernateUtil;
 import com.locShop.dao.ICategoryDao;
 import com.locShop.model.CategoryEntity;

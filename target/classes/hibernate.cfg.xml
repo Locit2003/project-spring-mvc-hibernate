@@ -6,7 +6,6 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/clothes_locShop</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">Loc27112003#</property>
-    <property name="connection.pool_size">3</property>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
      <property name="current_session_context_class">thread</property>
      <property name="format_sql">true</property>

@@ -6,6 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+
+	.imgPro{
+		width: :60px;
+		height: 60px;
+	}
+</style>
 </head>
 <body>
 	<div class="content-wrapper">
@@ -22,8 +29,8 @@
 					<h4 class="fw-bold py-3 mb-4">Total Contest:</h4>
 				</div>
 				<div class="col-md-2">
-					<a href="<%=request.getContextPath()%>/admin-category-add">
-						<button hef class="btn btn-primary" data-bs-toggle="tooltip"
+					<a href="<%=request.getContextPath()%>/admin/product/add">
+						<button class="btn btn-primary" data-bs-toggle="tooltip"
 							data-bs-offset="0,4" data-bs-placement="right"
 							data-bs-html="true" title="Add one candidates ">Add</button>
 					</a>
@@ -45,23 +52,21 @@
 								<th>category Name</th>
 								<th>Created date</th>
 								<th>Updated date</th>
-								<th>Delete date</th>
 								<th></th>
 							</tr>
 						</thead>
 						<tbody class="table-border-bottom-0">
-							<c:forEach items="${pros }" var="pro">
+							<c:forEach items="${prods }" var="pro">
 								<tr>
 									<td><i class="fab fa-angular fa-lg text-danger me-3"></i>
 										<strong>${pro.id }</strong></td>
 									<td>${pro.name }</td>
-									<td>${pro.image }</td>
+									<td><img class="imgPro" width="70px" height="70px" src="<c:url value="/template/image/${pro.image}"/>"></td>
 									<td>${pro.price }</td>
 									<td>${pro.sale_price }</td>
-									<td>${pro.categoryName }</td>
-									<td><span class="badge bg-label-primary me-1">${pro.createdAt }</span></td>
-									<td><span class="badge bg-label-primary me-1">${pro.createdAt }</span></td>
-									<td><span class="badge bg-label-primary me-1">${pro.createdAt }</span></td>
+									<td>${cat }</td>
+									<td><span class="badge bg-label-primary me-1">${pro.created_at }</span></td>
+									<td><span class="badge bg-label-primary me-1">${pro.updated_at }</span></td>
 									<td>
 										<div class="dropdown">
 											<button type="button"
@@ -74,7 +79,7 @@
 													class="menu-icon tf-icons bx bx-detail"></i> Show list
 													candidates</a> <a class="dropdown-item"
 													href="vote-history-contest/"><i class="bx bx-show"></i>
-													Show history vote</a> <a class="dropdown-item" href="edit/"><i
+													Show history vote</a> <a class="dropdown-item" href="edit/${pro.id }"><i
 													class="bx bx-edit-alt me-1"></i> Edit Contest</a> <a
 													class="dropdown-item"
 													onclick="return confirm('You definitely want to delete this entry ?')"

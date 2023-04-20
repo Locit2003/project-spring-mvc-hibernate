@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <aside id="layout-menu"
 	class="layout-menu menu-vertical menu bg-menu-theme">
@@ -111,11 +112,13 @@
 		</a>
 			<ul class="menu-sub">
 				<li class="menu-item"><a
-					href="<%=request.getContextPath() %>/admin-category-list" class="menu-link">
+					href="<%=request.getContextPath()%>/admin-category-list"
+					class="menu-link">
 						<div data-i18n="Account">Danh Sách</div>
 				</a></li>
 				<li class="menu-item"><a
-					href="<%=request.getContextPath() %>/admin-category-add" class="menu-link">
+					href="<%=request.getContextPath()%>/admin-category-add"
+					class="menu-link">
 						<div data-i18n="Notifications">Thêm</div>
 				</a></li>
 			</ul></li>
@@ -125,15 +128,18 @@
 				<div data-i18n="Authentications">Sản Phẩm</div>
 		</a>
 			<ul class="menu-sub">
-				<li class="menu-item"><a href="<%=request.getContextPath() %>/admin-product-list"
+				<li class="menu-item"><a
+					href="<%=request.getContextPath()%>/admin/product/list"
 					class="menu-link">
 						<div data-i18n="Basic">Danh sách</div>
 				</a></li>
-				<li class="menu-item"><a href="<%=request.getContextPath() %>/admin-product-add" 
+				<li class="menu-item"><a
+					href="<%=request.getContextPath()%>/admin/product/add"
 					class="menu-link">
 						<div data-i18n="Basic">Thêm</div>
 				</a></li>
-				<li class="menu-item"><a href="<%=request.getContextPath() %>/admin-product-edit"
+				<li class="menu-item"><a
+					href="<%=request.getContextPath()%>/admin/product/edit"
 					class="menu-link">
 						<div data-i18n="Basic">Sửa</div>
 				</a></li>
@@ -148,7 +154,7 @@
 					class="menu-link">
 						<div data-i18n="Error">Danh sách</div>
 				</a></li>
-				
+
 			</ul></li>
 		<!-- Components -->
 		<li class="menu-header small text-uppercase"><span

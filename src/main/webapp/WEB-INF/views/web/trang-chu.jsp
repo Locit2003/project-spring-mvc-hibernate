@@ -17,7 +17,7 @@
 						<div class="card h-100">
 							<!-- Product image-->
 							<img class="card-img-top" width="200" height="300"
-								src="<c:url value="/template/web/assets/image/${pro.image}"/>"
+								src="<c:url value="/template/image/${pro.image}"/>"
 								alt="${pro.image}" />
 							<!-- Product details-->
 							<div class="card-body p-4">

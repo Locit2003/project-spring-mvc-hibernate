@@ -46,7 +46,7 @@ public class CategoryController {
 		return nav;
 	}
 	
-	@RequestMapping(value = "/admin-category-insert", method = RequestMethod.POST)
+	@RequestMapping(value = "insert", method = RequestMethod.POST)
 	public String category_insert(@ModelAttribute("cats") CategoryEntity cats) {	
 		categoryService.insert(cats);
 		return "redirect:admin-category-list";
