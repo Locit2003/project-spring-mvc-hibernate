@@ -10,8 +10,7 @@
 </head>
 <body>
 	<section class="py-5">
-		<form:form action="" method="post" modelAttribute="ProductDetailsDTO">
-		<form:input path="proId" type="hidden" type="text"/>
+		<form action="" method="post">
 			<div class="container px-4 px-lg-5 my-5">
 				<div class="row gx-4 gx-lg-5 align-items-center">
 					<div class="col-md-6">
@@ -29,9 +28,9 @@
 						</div>
 						<div class="buttons_added">
 						<span style="padding-right: 20px">Số lượng: </span>
-							<input class="minus is-form" type="button" value="-"> <form:input
+							<input class="minus is-form" type="button" value="-"> <input
 								aria-label="quantity" class="input-qty" max="99"
-								min="1" path="quantity" type="number" value="1" /> <input
+								min="1" name="quantity" type="number" value="1" /> <input
 								class="plus is-form" type="button" value="+">
 						</div><br>
 						<div class="d-flex">
@@ -73,7 +72,7 @@
 					</div>
 				</div>
 			</div>
-		</form:form>
+		</form>
 	</section>
 	<div class="product-description">
 		<h4>MÔ TẢ SẢN PHẨM</h4>

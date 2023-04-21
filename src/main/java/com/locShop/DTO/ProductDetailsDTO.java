@@ -18,7 +18,6 @@ public class ProductDetailsDTO {
 		this.size = size;
 		this.quantity = quantity;
 	}
-
 	public Long getProId() {
 		return proId;
 	}
