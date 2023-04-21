@@ -11,6 +11,7 @@
 <body>
 	<section class="py-5">
 		<form:form action="" method="post" modelAttribute="ProductDetailsDTO">
+		<form:input path="proId" type="hidden" type="text"/>
 			<div class="container px-4 px-lg-5 my-5">
 				<div class="row gx-4 gx-lg-5 align-items-center">
 					<div class="col-md-6">
@@ -28,10 +29,10 @@
 						</div>
 						<div class="buttons_added">
 						<span style="padding-right: 20px">Số lượng: </span>
-							<input class="minus is-form" type="button" value="-">
-							<form:input aria-label="quantity" class="input-qty" max="99"
-								min="1" path="quantity" id="quantity" type="number" value="1" />
-							<input class="plus is-form" type="button" value="+">
+							<input class="minus is-form" type="button" value="-"> <form:input
+								aria-label="quantity" class="input-qty" max="99"
+								min="1" path="quantity" type="number" value="1" /> <input
+								class="plus is-form" type="button" value="+">
 						</div><br>
 						<div class="d-flex">
 							<button class="btn btn-outline-dark flex-shrink-0" type="button">
