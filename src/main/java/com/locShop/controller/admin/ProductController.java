@@ -92,7 +92,7 @@ public class ProductController {
 		return "admin/product/edit";
 	}
 	
-	@PostMapping(value = "edit-product")
+	@PostMapping(value = "edit/edit-product")
 	public String update_product(@ModelAttribute("productDTO") ProductDTO pro, Model model, HttpServletRequest req,
 			@RequestParam("fileUpload") MultipartFile imgFile) {
 		try {
@@ -105,7 +105,7 @@ public class ProductController {
 				model.addAttribute("message", "Update success!");
 				pro.setImage(fileName);
 				if (pro.getImage() != null) {
-					productService.insert(pro);
+					productService.update(pro);
 					return "redirect:/admin/product/list";
 				}
 			}

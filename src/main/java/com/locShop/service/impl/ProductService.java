@@ -36,8 +36,8 @@ public class ProductService implements IProductService{
 
 	@Override
 	public boolean update(ProductDTO p) {
-		// TODO Auto-generated method stub
-		return false;
+		ProductEntity prod = new ProductEntity(p.getId(), null, null, null, p.getName(), p.getImage(), p.getPrice(), p.getSale_price(), p.getDescription(), categoryDao.getCategoryById(p.getCategory_id()));
+		return productDao.update(prod);
 	}
 
 	@Override

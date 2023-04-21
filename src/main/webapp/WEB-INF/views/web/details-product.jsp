@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ include file="/common/taglib.jsp" %>
+<%@ include file="/common/taglib.jsp"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,33 +10,74 @@
 </head>
 <body>
 	<section class="py-5">
-		<div class="container px-4 px-lg-5 my-5">
-			<div class="row gx-4 gx-lg-5 align-items-center">
-				<div class="col-md-6">
-					<img class="card-img-top mb-5 mb-md-0"
-						src="<c:url value="/template/web/assets/image/"/>" alt="..." />
-				</div>
-				<div class="col-md-6">
-					<div class="small mb-1">SKU: BST-498</div>
-					<h1 class="display-5 fw-bolder"></h1>
-					<div class="fs-5 mb-5">
-						<span class="text-decoration-line-through">$$</span> <span>$$</span>
+		<form:form action="" method="post" modelAttribute="ProductDetailsDTO">
+			<div class="container px-4 px-lg-5 my-5">
+				<div class="row gx-4 gx-lg-5 align-items-center">
+					<div class="col-md-6">
+						<img class="card-img-top mb-5 mb-md-0"
+							src="<c:url value="/template/image/${proDetails.image}"/>"
+							alt="..." />
 					</div>
-					<p class="lead">Lorem ipsum dolor sit amet consectetur
-						adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi
-						consequatur obcaecati excepturi alias magni, accusamus eius
-						blanditiis delectus ipsam minima ea iste laborum vero?</p>
-					<div class="d-flex">
-						<input class="form-control text-center me-3" id="inputQuantity"
-							type="num" value="1" style="max-width: 3rem" />
-						<button class="btn btn-outline-dark flex-shrink-0" type="button">
-							<i class="bi-cart-fill me-1"></i> Add to cart
-						</button>
+					<div class="col-md-6">
+						<h2 style="margin-top: -100px; padding-bottom: 80px">${proDetails.name }</h2>
+						<div class="small mb-1">SKU: BST-498</div>
+						<h1 class="display-5 fw-bolder"></h1>
+						<div class="fs-5 mb-5">
+							<span class="text-decoration-line-through">$${proDetails.sale_price}</span>
+							<span>$${proDetails.price }</span>
+						</div>
+						<div class="buttons_added">
+						<span style="padding-right: 20px">Số lượng: </span>
+							<input class="minus is-form" type="button" value="-">
+							<form:input aria-label="quantity" class="input-qty" max="99"
+								min="1" path="quantity" id="quantity" type="number" value="1" />
+							<input class="plus is-form" type="button" value="+">
+						</div><br>
+						<div class="d-flex">
+							<button class="btn btn-outline-dark flex-shrink-0" type="button">
+								<i class="bi-cart-fill me-1"></i> Add to cart
+							</button>
+							<button style="margin-left: 10px;"
+								class="btn btn-outline-danger flex-shrink-0" type="button">
+								<i class="bi-cart-fill me-1"></i> Mua ngay
+							</button>
+							<br>
+						</div>
+						<div class="d-flex" style="margin-top: 50px">
+							<button class="btn btn-outline-dark flex-shrink-0 size"
+								type="button">XS</button>
+							<button class="btn btn-outline-dark flex-shrink-0 size"
+								type="button">S</button>
+							<button class="btn btn-outline-dark flex-shrink-0 size"
+								type="button">M</button>
+							<button class="btn btn-outline-dark flex-shrink-0 size"
+								type="button">L</button>
+							<button class="btn btn-outline-dark flex-shrink-0 size"
+								type="button">XL</button>
+						</div>
+						<div class="stars" style="margin-top: 30px">
+							<form action="">
+								<input class="star star-5" id="star-5" type="radio" name="star" />
+								<label class="star star-5" for="star-5"></label> <input
+									class="star star-4" id="star-4" type="radio" name="star" /> <label
+									class="star star-4" for="star-4"></label> <input
+									class="star star-3" id="star-3" type="radio" name="star" /> <label
+									class="star star-3" for="star-3"></label> <input
+									class="star star-2" id="star-2" type="radio" name="star" /> <label
+									class="star star-2" for="star-2"></label> <input
+									class="star star-1" id="star-1" type="radio" name="star" /> <label
+									class="star star-1" for="star-1"></label>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</form:form>
 	</section>
+	<div class="product-description">
+		<h4>MÔ TẢ SẢN PHẨM</h4>
+		<p>${proDetails.description }</p>
+	</div>
 	<!-- Related items section-->
 	<section class="py-5 bg-light">
 		<div class="container px-4 px-lg-5 mt-5">
@@ -156,6 +198,42 @@
 							</div>
 						</div>
 					</div>
+				</div>
+			</div>
+		</div>
+
+		<div>
+			<div style="display: contents;">
+				<div class="product-ratings" data-nosnippet="true">
+					<div class="product-ratings__header">
+						<div class="product-ratings__header_score">ĐÁNH GIÁ SẢN PHẨM</div>
+					</div>
+					<div class="product-rating-overview">
+						<div class="product-rating-overview__briefing">
+							<div class="product-rating-overview__score-wrapper">
+								<span class="product-rating-overview__rating-score">4.7</span><span
+									class="product-rating-overview__rating-score-out-of">
+									trên 5 </span>
+							</div>
+						</div>
+						<div class="product-rating-overview__filters">
+							<div
+								class="product-rating-overview__filter product-rating-overview__filter--active product-rating-overview__filter--all">tất
+								cả</div>
+							<div class="product-rating-overview__filter">5 Sao (19)</div>
+							<div class="product-rating-overview__filter">4 Sao (1)</div>
+							<div class="product-rating-overview__filter">3 Sao (1)</div>
+							<div class="product-rating-overview__filter">2 Sao (0)</div>
+							<div class="product-rating-overview__filter">1 Sao (1)</div>
+							<div
+								class="product-rating-overview__filter product-rating-overview__filter--with-comment">Có
+								Bình luận (6)</div>
+							<div
+								class="product-rating-overview__filter product-rating-overview__filter--with-photo">Có
+								hình ảnh / video (3)</div>
+						</div>
+					</div>
+
 				</div>
 			</div>
 		</div>

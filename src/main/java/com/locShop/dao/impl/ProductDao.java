@@ -53,7 +53,18 @@ public class ProductDao implements IProductDao{
 
 	@Override
 	public boolean update(ProductEntity p) {
-		// TODO Auto-generated method stub
+		Session session = sessionFactory.openSession();
+		try {
+			session.beginTransaction();
+			session.update(p);
+			session.getTransaction().commit();
+			session.close();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			session.close();
+		}
 		return false;
 	}
 

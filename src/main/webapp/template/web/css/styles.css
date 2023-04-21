@@ -11317,4 +11317,81 @@ img, svg {
    border: none !important;
 }
 
+.size {
+	margin: 0 10px;
+	padding: 0 16px;
+}
 
+div.stars {
+	width: 270px;
+	display: inline-block;
+}
+
+input.star {
+	display: none;
+}
+
+label.star {
+	float: right;
+	padding: 10px;
+	font-size: 36px;
+	color: #444;
+	transition: all .2s;
+}
+
+label.star:before {
+	content: '\f006';
+	font-family: FontAwesome;
+}
+.product-ratings {
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+    border-radius: 0.125rem;
+    overflow: hidden;
+    background: #fff;
+    margin-top: 0.9375rem;
+    padding: 0 40px;
+    overflow: visible;
+}
+.product-ratings__header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-bottom: 1em;
+}
+.product-ratings__header_score {
+    font-size: 1.125rem;
+    color: rgba(0,0,0,.87);
+    margin-right: 0.2em;
+    text-transform: capitalize;
+}
+.product-rating-overview {
+    background-color: #fffbf8;
+    min-height: 5rem;
+    border: 1px solid #f9ede5;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    border-radius: 2px;
+    box-sizing: border-box;
+    padding: 1.875rem;
+}
+.product-rating-overview__briefing {
+    text-align: center;
+    margin-right: 1.875rem;
+}
+.theme--ofs .product-rating-overview__score-wrapper {
+    color: #d0011b;
+}
+.product-rating-overview__stars {
+    font-size: 1.25rem;
+    margin-top: 0.625rem;
+}
+.product-description {
+  width:70%;
+  border: 1px solid #ccc; /*Thiết lập đường viền cho hộp*/
+  padding: 10px; /*Thiết lập khoảng cách giữa nội dung và đường viền*/
+  background-color: #f8f8f8; /*Thiết lập màu nền cho hộp*/
+  font-size: 16px; /*Thiết lập kích thước chữ cho nội dung*/
+  line-height: 1.4; /*Thiết lập độ cao dòng cho nội dung*/
+  margin: 30px auto;
+}
