@@ -8,24 +8,27 @@
     http://www.springframework.org/schema/security/spring-security-5.4.xsd">
 	<http auto-config="true">
 		<csrf disabled="true" />
-		<intercept-url pattern="/admin*" access="hasRole('admin')" />
+		<intercept-url pattern="/admin*"
+			access="hasRole('admin')" />
 
-		<intercept-url pattern="/*" access="hasRole('admin') or hasRole('user')" />
-
-		<form-login login-page="/auth/login-admin" login-processing-url="/j_spring_security_login"
-			default-target-url="/admin-home"
-			authentication-failure-url="/auth/login-admin"
+		<intercept-url pattern="/*"
+			access="hasRole('admin') or hasRole('user')" />
+		<access-denied-handler error-page="/403" />
+		<form-login login-page="/login"
+			login-processing-url="/j_spring_security_login"
+			default-target-url="/trang-chu"
+			authentication-failure-url="/login?message=error"
 			username-parameter="username" password-parameter="password" />
 		<logout logout-url="/logout-admin"
 			logout-success-url="/auth/login-admin" delete-cookies="JSESSIONID" />
 	</http>
 	<authentication-manager>
 		<authentication-provider>
+			 <user-service>
+        		<user name="admin" password="{noop}123456" authorities="admin" />
+        		<user name="user" password="{noop}123456" authorities="user" />
+      		</user-service>
 			<password-encoder ref="passwordEncoder" />
-			<jdbc-user-service data-source-ref="dataSource"
-				users-by-username-query="select username,password, enabled from users where username=?"
-				authorities-by-username-query="select users.username, role.name from users, role, users_roles
-				where username =? and users.id = users_roles.userId and users_roles.roleId = role.id " />
 		</authentication-provider>
 
 	</authentication-manager>

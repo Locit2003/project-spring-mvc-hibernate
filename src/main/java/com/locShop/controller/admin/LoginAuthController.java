@@ -1,6 +1,5 @@
 package com.locShop.controller.admin;
 
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -36,7 +35,7 @@ public class LoginAuthController {
 			HttpServletRequest request, Model model, @Valid @ModelAttribute("basicExample") BasicExample basicExample) {
 		Captcha captcha = Captcha.load(request, "basicExample");
 		boolean isHuman = captcha.validate(basicExample.getCaptchaCode());
-		
+
 		if (isHuman) {
 			UserEntity userLogin = userService.findByUserName(user.getUsername());
 			if (userLogin == null || !userLogin.getPassword().equals(user.getPassword())) {
@@ -56,10 +55,10 @@ public class LoginAuthController {
 			return "redirect:/auth/login-admin";
 		}
 	}
-	
+
 	@GetMapping("/logout-admin")
 	public String logoutForm() {
-		
+
 		return null;
 	}
 }

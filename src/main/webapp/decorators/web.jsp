@@ -11,10 +11,14 @@
 	rel="stylesheet" />
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/template/web/css/styles.css" />">
+	<link rel="stylesheet" type="text/css"
+	href="<c:url value="/template/web/css/cart-item.css" />">
 <link rel='stylesheet prefetch'
 	href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
 
 <style type="text/css">
+
+
 .size {
 	margin: 0 10px;
 	padding: 0 16px;

@@ -9,7 +9,7 @@ public class ProductDetailsDTO {
 	private int quantity;
 	
 	public ProductDetailsDTO() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public ProductDetailsDTO(Long proId, String size, int quantity) {

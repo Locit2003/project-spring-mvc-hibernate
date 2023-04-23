@@ -10,9 +10,12 @@
 </head>
 <body>
 	<section class="py-5">
-		<form action="" method="post">
+		<form:form action="add-to-cart" method="post"
+			modelAttribute="productDetailsDTO">
 			<div class="container px-4 px-lg-5 my-5">
 				<div class="row gx-4 gx-lg-5 align-items-center">
+					<form:input type="hidden" path="proId" value="${proDetails.id}"
+						readonly="true" />
 					<div class="col-md-6">
 						<img class="card-img-top mb-5 mb-md-0"
 							src="<c:url value="/template/image/${proDetails.image}"/>"
@@ -27,52 +30,44 @@
 							<span>$${proDetails.price }</span>
 						</div>
 						<div class="buttons_added">
-						<span style="padding-right: 20px">Số lượng: </span>
-							<input class="minus is-form" type="button" value="-"> <input
-								aria-label="quantity" class="input-qty" max="99"
-								min="1" name="quantity" type="number" value="1" /> <input
-								class="plus is-form" type="button" value="+">
-						</div><br>
+							<span style="padding-right: 20px">Số lượng: </span> <input
+								class="minus is-form" type="button" value="-">
+							<form:input aria-label="quantity" class="input-qty" max="99"
+								min="1" path="quantity" type="number" value="1" />
+							<input class="plus is-form" type="button" value="+">
+						</div>
+						<br>
 						<div class="d-flex">
-							<button class="btn btn-outline-dark flex-shrink-0" type="button">
+							<button class="btn btn-outline-dark flex-shrink-0" type="submit"
+								name="action" value="add-to-cart">
 								<i class="bi-cart-fill me-1"></i> Add to cart
 							</button>
 							<button style="margin-left: 10px;"
-								class="btn btn-outline-danger flex-shrink-0" type="button">
+								class="btn btn-outline-danger flex-shrink-0" type="submit"
+								name="action" value="add-now">
 								<i class="bi-cart-fill me-1"></i> Mua ngay
 							</button>
 							<br>
 						</div>
 						<div class="d-flex" style="margin-top: 50px">
-							<button class="btn btn-outline-dark flex-shrink-0 size"
-								type="button">XS</button>
-							<button class="btn btn-outline-dark flex-shrink-0 size"
-								type="button">S</button>
-							<button class="btn btn-outline-dark flex-shrink-0 size"
-								type="button">M</button>
-							<button class="btn btn-outline-dark flex-shrink-0 size"
-								type="button">L</button>
-							<button class="btn btn-outline-dark flex-shrink-0 size"
-								type="button">XL</button>
+
+							<label class="radio"> <form:radiobutton path="size"
+									value="XS" /> <span>XS</span>
+							</label> <label class="radio"> <form:radiobutton path="size"
+									value="S" /> <span>S</span>
+							</label> <label class="radio"> <form:radiobutton path="size"
+									value="M" /> <span>M</span>
+							</label> <label class="radio"> <form:radiobutton path="size"
+									value="L" /> <span>L</span>
+							</label> <label class="radio"> <form:radiobutton path="size"
+									value="XL" /> <span>XL</span>
+							</label>
 						</div>
-						<div class="stars" style="margin-top: 30px">
-							<form action="">
-								<input class="star star-5" id="star-5" type="radio" name="star" />
-								<label class="star star-5" for="star-5"></label> <input
-									class="star star-4" id="star-4" type="radio" name="star" /> <label
-									class="star star-4" for="star-4"></label> <input
-									class="star star-3" id="star-3" type="radio" name="star" /> <label
-									class="star star-3" for="star-3"></label> <input
-									class="star star-2" id="star-2" type="radio" name="star" /> <label
-									class="star star-2" for="star-2"></label> <input
-									class="star star-1" id="star-1" type="radio" name="star" /> <label
-									class="star star-1" for="star-1"></label>
-							</form>
-						</div>
+						<div class="stars" style="margin-top: 30px"></div>
 					</div>
 				</div>
 			</div>
-		</form>
+		</form:form>
 	</section>
 	<div class="product-description">
 		<h4>MÔ TẢ SẢN PHẨM</h4>
@@ -207,6 +202,18 @@
 				<div class="product-ratings" data-nosnippet="true">
 					<div class="product-ratings__header">
 						<div class="product-ratings__header_score">ĐÁNH GIÁ SẢN PHẨM</div>
+						<form action="">
+							<input class="star star-5" id="star-5" type="radio" name="star" />
+							<label class="star star-5" for="star-5"></label> <input
+								class="star star-4" id="star-4" type="radio" name="star" /> <label
+								class="star star-4" for="star-4"></label> <input
+								class="star star-3" id="star-3" type="radio" name="star" /> <label
+								class="star star-3" for="star-3"></label> <input
+								class="star star-2" id="star-2" type="radio" name="star" /> <label
+								class="star star-2" for="star-2"></label> <input
+								class="star star-1" id="star-1" type="radio" name="star" /> <label
+								class="star star-1" for="star-1"></label>
+						</form>
 					</div>
 					<div class="product-rating-overview">
 						<div class="product-rating-overview__briefing">

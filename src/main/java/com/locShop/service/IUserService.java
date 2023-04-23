@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.locShop.model.UserEntity;
-@Repository
 public interface IUserService {
 	public List<UserEntity> findAll();
 	public boolean insert(UserEntity user);

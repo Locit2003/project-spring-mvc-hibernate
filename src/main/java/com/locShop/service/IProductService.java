@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import com.locShop.DTO.ProductDTO;
 import com.locShop.model.ProductEntity;
 
-@Repository
 public interface IProductService {
 	public List<ProductEntity> findAll();
 	public boolean insert(ProductDTO p);

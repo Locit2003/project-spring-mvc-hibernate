@@ -20,7 +20,7 @@ public class UserDao implements IUserDao{
 	
 	@Override
 	public List<UserEntity> findAll() {
-		Session session = HibernateUtil.getSessionFactory().openSession();
+		Session session = sessionFactory.openSession();
 		try {
 			session.beginTransaction();
 			List<UserEntity> list = session.createQuery("from com.locShop.model.UserEntity", UserEntity.class).list();
@@ -36,7 +36,7 @@ public class UserDao implements IUserDao{
 
 	@Override
 	public boolean insert(UserEntity user) {
-		Session session = HibernateUtil.getSessionFactory().openSession();
+		Session session = sessionFactory.openSession();
 		try {
 			session.beginTransaction();
 			session.save(user);

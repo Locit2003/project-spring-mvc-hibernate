@@ -1,8 +1,10 @@
 package com.locShop.service.impl;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.locShop.dao.IUserDao;
@@ -10,7 +12,7 @@ import com.locShop.model.UserEntity;
 import com.locShop.service.IUserService;
 
 @Service
-public class UserService implements IUserService{
+public class UserService implements IUserService,UserDetailsService{
  
 	@Autowired
 	IUserDao userDao;
@@ -48,5 +50,12 @@ public class UserService implements IUserService{
 	public UserEntity findByUserName(String userName) {
 		return userDao.findByUserName(userName);
 	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 
 }
