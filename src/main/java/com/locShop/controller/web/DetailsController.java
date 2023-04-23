@@ -28,6 +28,6 @@ public class DetailsController {
 	@PostMapping("chi-tiet-san-pham/add-to-cart")
 	public String addToCart(Model model,@RequestParam("action") String action,
 			@ModelAttribute("productDetailsDTO") ProductDetailsDTO prod) {
-		return "";
+		return "web/cart-item";
 	}
 }

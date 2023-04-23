@@ -74,13 +74,11 @@ public class UserDao implements IUserDao{
 		try {
 			session.beginTransaction();
 			String hql = "FROM UserEntity WHERE username = :username";
-			Query<UserEntity> query = session.createQuery(hql, UserEntity.class);
-			query.setParameter("username", userName);
-			List<UserEntity> userList = query.getResultList();
-			if (!userList.isEmpty()) {
-			    UserEntity user = userList.get(0);
+			UserEntity user = (UserEntity) session.createQuery(hql).setParameter("username", userName).uniqueResult();
+			if (user != null) {
 			    return user;
 			}
+			return null;
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.getTransaction().rollback();

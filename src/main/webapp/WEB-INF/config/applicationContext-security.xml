@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans  
     http://www.springframework.org/schema/beans/spring-beans.xsd  
     http://www.springframework.org/schema/security  
-    http://www.springframework.org/schema/security/spring-security-5.4.xsd">
+    http://www.springframework.org/schema/security/spring-security-5.5.xsd">
 	<http auto-config="true">
 		<csrf disabled="true" />
 		<intercept-url pattern="/admin*"
@@ -13,21 +13,17 @@
 
 		<intercept-url pattern="/*"
 			access="hasRole('admin') or hasRole('user')" />
-		<access-denied-handler error-page="/403" />
-		<form-login login-page="/login"
-			login-processing-url="/j_spring_security_login"
+		<form-login login-page="/auth/login-admin"
+			login-processing-url="login-admin"
 			default-target-url="/trang-chu"
-			authentication-failure-url="/login?message=error"
+			authentication-failure-url="/auth/login-admin?message=error"
 			username-parameter="username" password-parameter="password" />
-		<logout logout-url="/logout-admin"
+		<logout logout-url="logout-admin"
 			logout-success-url="/auth/login-admin" delete-cookies="JSESSIONID" />
 	</http>
 	<authentication-manager>
-		<authentication-provider>
-			 <user-service>
-        		<user name="admin" password="{noop}123456" authorities="admin" />
-        		<user name="user" password="{noop}123456" authorities="user" />
-      		</user-service>
+		<authentication-provider user-service-ref="userService">
+			
 			<password-encoder ref="passwordEncoder" />
 		</authentication-provider>
 
