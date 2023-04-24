@@ -14,7 +14,6 @@ import com.locShop.service.IProductService;
 
 @Controller(value = "detailsControllerOfWeb")
 public class DetailsController {
-
 	@Autowired
 	private IProductService productService;
 	
