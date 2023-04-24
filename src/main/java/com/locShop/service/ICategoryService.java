@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import com.locShop.model.CategoryEntity;
 
-@Repository
 public interface ICategoryService {
 	public List<CategoryEntity> findAll();
 	public boolean insert(CategoryEntity c);

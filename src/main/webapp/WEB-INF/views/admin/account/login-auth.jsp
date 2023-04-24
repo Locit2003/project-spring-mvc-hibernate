@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="botDetect" uri="https://captcha.com/java/jsp"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,6 +33,41 @@
 <script
 	src="<c:url value="/template/admin/assets/vendor/js/helpers.js" />"></script>
 <script src="<c:url value="/template/admin/assets/js/config.js" />"></script>
+
+<style type="text/css">
+input, .btn {
+	width: 100%;
+	padding: 12px;
+	border: none;
+	border-radius: 4px;
+	margin: 5px 0;
+	opacity: 0.85;
+	display: inline-block;
+	font-size: 17px;
+	line-height: 20px;
+	text-decoration: none; /* remove underline from anchors */
+}
+
+input:hover, .btn:hover {
+	opacity: 1;
+}
+
+.fb {
+	background-color: #3B5998;
+	color: white;
+}
+
+.twitter {
+	background-color: #55ACEE;
+	color: white;
+}
+
+.google {
+	background-color: #dd4b39;
+	color: white;
+}
+</style>
+
 </head>
 <div class="container-xxl">
 	<div class="authentication-wrapper authentication-basic container-p-y">
@@ -105,7 +141,7 @@
 						action="login-admin" modelAttribute="user">
 						<div class="mb-3">
 							<c:if test="${errLogin!=null}">
-								<label  class="form-label text-danger" >${errLogin}</label>
+								<label class="form-label text-danger">${errLogin}</label>
 							</c:if>
 							<label for="username" class="form-label">Username</label>
 							<form:input type="text" class="form-control" id="username"
@@ -138,18 +174,29 @@
 							characters from the picture:</label>
 						<botDetect:captcha id="basicExample" userInputID="captchaCode" />
 						<div class="validationDiv">
-							<input name="captchaCode" type="text" id="captchaCode" value="${basicExample.captchaCode}" />
-        						<input type="submit" name="validateCaptchaButton" value="Validate" id="validateCaptchaButton" />
-        						<span class="correct">${basicExample.captchaCorrect}</span>
-        						<span class="incorrect">${basicExample.captchaIncorrect}</span>
+							<input name="captchaCode" type="text" id="captchaCode"
+								value="${basicExample.captchaCode}" /> <input type="submit"
+								name="validateCaptchaButton" value="Validate"
+								id="validateCaptchaButton" /> <span class="correct">${basicExample.captchaCorrect}</span>
+							<span class="incorrect">${basicExample.captchaIncorrect}</span>
 						</div>
 						<div class="mb-3">
 							<button class="btn btn-primary d-grid w-100" type="submit">Sign
 								in</button>
 						</div>
-						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+						<input type="hidden" name="${_csrf.parameterName}"
+							value="${_csrf.token}" />
 					</form:form>
-
+					<div class="col">
+						<a href="#" class="fb btn"> <i class="fa fa-facebook fa-fw"></i>
+							Login with Facebook
+						</a> <a href="#" class="twitter btn"> <i
+							class="fa fa-twitter fa-fw"></i> Login with Twitter
+						</a> <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/spring-mvc-project/login-google&response_type=code
+    &client_id=195851300604-32sho9b3g2se5j27vi13mur8sclho8du.apps.googleusercontent.com&approval_prompt=force" class="google btn"> <i class="fa fa-google fa-fw"></i>
+							Login with Google+
+						</a>
+					</div>
 					<p class="text-center">
 						<span>New on our platform?</span> <a
 							href="auth-register-basic.html"> <span>Create an
@@ -163,12 +210,6 @@
 	</div>
 </div>
 <!-- / Content -->
-<div class="buy-now">
-	<a
-		href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
-		target="_blank" class="btn btn-danger btn-buy-now">Upgrade to Pro</a>
-</div>
-
 <script src="../assets/vendor/libs/jquery/jquery.js"></script>
 <script src="../assets/vendor/libs/popper/popper.js"></script>
 <script src="../assets/vendor/js/bootstrap.js"></script>

@@ -11,10 +11,14 @@
 	rel="stylesheet" />
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/template/web/css/styles.css" />">
+	<link rel="stylesheet" type="text/css"
+	href="<c:url value="/template/web/css/cart-item.css" />">
 <link rel='stylesheet prefetch'
 	href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
 
 <style type="text/css">
+
+
 .size {
 	margin: 0 10px;
 	padding: 0 16px;
@@ -179,6 +183,36 @@ label.star:before {
 	-webkit-appearance: none;
 	margin: 0;
 }
+label.radio {
+	cursor: pointer;
+}
+
+label.radio input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	visibility: hidden;
+	pointer-events: none;
+}
+
+label.radio span {
+	padding: 1px 12px;
+	border: 2px solid #ada9a9;
+	display: inline-block;
+	color: #8f37aa;
+	border-radius: 3px;
+	text-transform: uppercase;
+	font-size: 11px;
+	font-weight: 300;
+}
+
+label.radio input:checked+span {
+	border-color: #fff;
+	background-color: blue;
+	color: #fff;
+}
+
+
 </style>
 </head>
 <body>
