@@ -19,7 +19,7 @@ import com.locShop.model.UserEntity;
 import com.locShop.service.IUserService;
 
 @Service
-public class UserService implements IUserService,UserDetailsService{
+public class UserService implements IUserService{
  
 	@Autowired
 	IUserDao userDao;
@@ -54,20 +54,9 @@ public class UserService implements IUserService,UserDetailsService{
 	}
 
 	@Override
-	public UserDetails findByUserName(String userName) {
-		return loadUserByUsername(userName);
+	public UserEntity findByUserName(String userName) {
+		return userDao.findByUserName(userName);
 	}
 
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		  UserEntity user = userDao.findByUserName(username);
-	        if (user == null) {
-	            throw new UsernameNotFoundException("User not found");
-	        }
-	        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),getAuthorities(user.getRoles()));
-	}
 	
-	  private static Collection<? extends GrantedAuthority> getAuthorities(List<RoleEntity> list) {
-	        return list.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
-	    }
 }

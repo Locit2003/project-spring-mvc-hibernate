@@ -138,7 +138,7 @@ input:hover, .btn:hover {
 						adventure</p>
 
 					<form:form id="formAuthentication" class="mb-3" method="POST"
-						action="login-admin" modelAttribute="user">
+						action="j_spring_security_login" modelAttribute="user">
 						<div class="mb-3">
 							<c:if test="${errLogin!=null}">
 								<label class="form-label text-danger">${errLogin}</label>
@@ -213,20 +213,15 @@ input:hover, .btn:hover {
 <script src="../assets/vendor/libs/jquery/jquery.js"></script>
 <script src="../assets/vendor/libs/popper/popper.js"></script>
 <script src="../assets/vendor/js/bootstrap.js"></script>
-<script
-	src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 <script src="../assets/vendor/js/menu.js"></script>
 <script src="../assets/js/main.js"></script>
-<script
-	src="<c:url value="/template/admin/assets/vendor/libs/jquery/jquery.js" />"></script>
-<script
-	src="<c:url value="/template/admin/assets/vendor/libs/popper/popper.js" />"></script>
-<script
-	src="<c:url value="/template/admin/assets/vendor/js/bootstrap.js" />"></script>
-<script
-	src="<c:url value="/template/admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js" />"></script>
+<script src="<c:url value="/template/admin/assets/vendor/libs/jquery/jquery.js" />"></script>
+<script src="<c:url value="/template/admin/assets/vendor/libs/popper/popper.js" />"></script>
+<script src="<c:url value="/template/admin/assets/vendor/js/bootstrap.js" />"></script>
+<script src="<c:url value="/template/admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js" />"></script>
 <script src="<c:url value="/template/admin/assets/vendor/js/menu.js" />"></script>
-<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="https://buttons.github.io/buttons.js"></script>
 <script src="<c:url value="/template/admin/assets/js/main.js" />"></script>
 </body>
 </html>

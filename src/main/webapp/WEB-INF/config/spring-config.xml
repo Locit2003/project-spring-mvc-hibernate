@@ -18,6 +18,7 @@
 	<bean id="userService"
 		class="com.locShop.service.impl.UserService" />
 	<bean id="UserDAO" class="com.locShop.dao.impl.UserDao" />
+	<bean id="customUserDetailService" class="com.locShop.service.impl.CustomUserDetailService" />
 	<mvc:annotation-driven />
 
 	<bean

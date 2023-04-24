@@ -4,6 +4,8 @@ package com.locShop.controller.admin;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -19,13 +21,18 @@ import com.captcha.botdetect.web.servlet.Captcha;
 import com.locShop.captcha.basicExample.BasicExample;
 import com.locShop.model.UserEntity;
 import com.locShop.service.IUserService;
+import com.locShop.service.impl.CustomUserDetailService;
 
 @Controller
 @RequestMapping("/auth")
 public class LoginAuthController {
 
 	@Autowired
-	IUserService userService;
+	private IUserService userService;
+	
+	@Autowired
+	private  CustomUserDetailService customUserDetailService;
+	
 	
 	@RequestMapping("/login")
 	public String login(@RequestParam(value = "error",required = false) String error, Model model) {
@@ -49,8 +56,9 @@ public class LoginAuthController {
 		boolean isHuman = captcha.validate(basicExample.getCaptchaCode());
 
 		if (isHuman) {
-			UserDetails userLogin = userService.findByUserName(user.getUsername());
-			if (userLogin == null || !userLogin.getPassword().equals(user.getPassword())) {
+			UserDetails userLogin = customUserDetailService.loadUserByUsername(user.getUsername());
+			
+			if (userLogin == null || !BCrypt.checkpw(user.getPassword(), userLogin.getPassword())) {
 				model.addAttribute("errLogin", "thông tin tài khoản mật khẩu không chính xác!");
 				return "admin/account/login-auth";
 			}

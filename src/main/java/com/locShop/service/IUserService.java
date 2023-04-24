@@ -12,5 +12,5 @@ public interface IUserService {
 	public boolean update(UserEntity user);
 	public boolean delete(Long proId);
 	public UserEntity getCategoryById(Long catId);
-	public UserDetails findByUserName(String userName);
+	public UserEntity findByUserName(String userName);
 }

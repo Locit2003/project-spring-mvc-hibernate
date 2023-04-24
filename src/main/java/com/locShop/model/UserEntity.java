@@ -40,6 +40,7 @@ public class UserEntity {
 	@ManyToMany
 	@JoinTable(name="user_role", joinColumns = @JoinColumn(name="userid"),inverseJoinColumns= @JoinColumn(name="roleId"))
 	private List<RoleEntity> roles = new ArrayList<>();
+	
 	public UserEntity() {
 
 	}

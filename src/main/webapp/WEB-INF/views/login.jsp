@@ -9,7 +9,7 @@
   
   <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/spring-mvc-project/login-google&response_type=code
     &client_id=195851300604-32sho9b3g2se5j27vi13mur8sclho8du.apps.googleusercontent.com&approval_prompt=force">Login With Google</a>  
-  <form name='loginForm' action="<c:url value='j_spring_security_login' />" method='POST'>
+  <form name='loginForm' action="<c:url value='/login/j_spring_security_login' />" method='POST'>
     <table>
       <tr>
         <td>User:</td>

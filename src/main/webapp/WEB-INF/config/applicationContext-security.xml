@@ -5,16 +5,14 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans  
     http://www.springframework.org/schema/beans/spring-beans.xsd  
     http://www.springframework.org/schema/security  
-    http://www.springframework.org/schema/security/spring-security-5.5.xsd">
+    http://www.springframework.org/schema/security/spring-security-5.7.xsd">
 	<http auto-config="true">
+	 <intercept-url pattern="/botdetectcaptcha" access="permitAll" />
 		<csrf disabled="true" />
-		<intercept-url pattern="/admin*"
-			access="hasRole('admin')" />
-
-		<intercept-url pattern="/*"
-			access="hasRole('admin') or hasRole('user')" />
+		<intercept-url pattern="/admin*" access="hasRole('admin')" />
+		<intercept-url pattern="/*" access="hasRole('admin') or hasRole('user')" />
 		<form-login login-page="/auth/login-admin"
-			login-processing-url="login-admin"
+			login-processing-url="/auth/j_spring_security_login"
 			default-target-url="/trang-chu"
 			authentication-failure-url="/auth/login-admin?message=error"
 			username-parameter="username" password-parameter="password" />
@@ -22,8 +20,7 @@
 			logout-success-url="/auth/login-admin" delete-cookies="JSESSIONID" />
 	</http>
 	<authentication-manager>
-		<authentication-provider user-service-ref="userService">
-			
+		<authentication-provider user-service-ref="customUserDetailService">
 			<password-encoder ref="passwordEncoder" />
 		</authentication-provider>
 
